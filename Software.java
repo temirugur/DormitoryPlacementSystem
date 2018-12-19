@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
@@ -10,20 +11,31 @@ public class Software {
 			Student student = new Student(createRandomName(), generateAge(), generateCity());
 			allStudents.add(student);
 		}
+		
 		List<Student> registeredList = new ArrayList<>();
 		List<Student> reserveList = new ArrayList<>();
-		List<Student> paymentList = new ArrayList<>();
 		
 		for(int i = 0; i<250; i++){
 			registeredList.add(allStudents.get(i));
 			System.out.println(registeredList.toString());
-			System.out.println(registeredList.size());
 			System.out.println();
 			System.out.println();
 			System.out.println();
 			
-			//registeredList.get(i) = allStudents.get(i);
-			registeredList.get(i).setPayment(randomPayment());
+			
+			System.out.println(registeredList.toString());
+			List<Student> paymentList = new ArrayList<>(registeredList);
+			paymentList.get(i).setPayment(randomPayment());
+			
+			
+			if(paymentList.get(i).getPayment() == false){
+				paymentList.remove(i);
+			} 
+			// ÇALIŞMIYO BURAYA TEKRAR BAKICAZ
+			//METHODLARA ÇEVİRİLECEK
+			
+			registeredList.clear();
+			registeredList.addAll(paymentList);
 			
 			System.out.println(registeredList.toString());
 			

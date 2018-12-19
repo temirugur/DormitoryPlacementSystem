@@ -41,9 +41,9 @@ public class Student {
 	
 	public String toString(){
 		return ("Name: " + getStudentName() +"\n"+
-	"Age: " + getAge() +"\n"+ 
-	"HomeCity: " + "\n"+ getHomeCity() +"\n"+ 
-	"Payment: " + getPayment());
+	            "Age: " + getAge() +"\n"+ 
+	            "HomeCity: " + getHomeCity() +"\n"+ 
+	            "Payment: " + getPayment()+"\n");
 	}
 
 }
