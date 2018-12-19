@@ -1,14 +1,36 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class Software {
-	public static void main (String[] ars) {
+	public static void main (String[] args) {
+		List<Student> allStudents = new ArrayList<>();
 		
-		for (int i=1;i<=500;i++) {
+		for (int i=0;i<500;i++) {
 			Student student = new Student(createRandomName(), generateAge(), generateCity());
+			allStudents.add(student);
 		}
-		StudentList registeredList = ;
-		StudentList reserveList =;
-		StudentList paymentList =;
+		List<Student> registeredList = new ArrayList<>();
+		List<Student> reserveList = new ArrayList<>();
+		List<Student> paymentList = new ArrayList<>();
+		
+		for(int i = 0; i<250; i++){
+			registeredList.add(allStudents.get(i));
+			
+			//registeredList.get(i) = allStudents.get(i);
+			registeredList.get(i).setPayment(randomPayment());
+			
+			paymentList = registeredList;
+			paymentList.toString();
+			}
+		
+		
+		
+		
+		for(int i = 250; i<500; i++){
+			reserveList.add(allStudents.get(i));
+		}
+		
 	}
 	
 	private static String createRandomName() {
@@ -25,7 +47,7 @@ public class Software {
 
 	}
 	private static String generateCity() {
-		String[] cities = {"Istanbul", "Ankara", "Izmýr", "Antalya", "Bursa", "Edirne"};
+		String[] cities = {"Istanbul", "Ankara", "IzmÃ½r", "Antalya", "Bursa", "Edirne"};
 		
 		Random random = new Random();
 		
@@ -47,5 +69,13 @@ public class Software {
 		int age = ages[random.nextInt(ages.length)];
 		
 		return age;
+	}
+	
+	private static boolean randomPayment(){
+		boolean payment = false;
+		
+		Random random = new Random();
+		payment = random.nextBoolean();
+		return payment;
 	}
 }

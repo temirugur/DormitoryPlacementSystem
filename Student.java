@@ -9,6 +9,7 @@ public class Student {
 		this.studentName = studentName;
 		this.age = age;
 		this.homeCity = homeCity;
+		payment = false;
 	}
 	
 	public Student (String studentName, int age, String homeCity, boolean payment) {
@@ -36,6 +37,13 @@ public class Student {
 	
 	public void setPayment(boolean payment){
 		this.payment = payment;
+	}
+	
+	public String toString(){
+		return ("Name: " + getStudentName() +"\n"+
+	"Age: " + getAge() +"\n"+ 
+	"HomeCity: " + "\n"+ getHomeCity() +"\n"+ 
+	"Payment: " + getPayment());
 	}
 
 }
