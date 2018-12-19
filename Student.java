@@ -1,12 +1,21 @@
-public abstract class Student {
+
+public class Student {
 	private String studentName;
 	private int age;
 	private String homeCity;
+	private boolean payment;
 	
 	public Student (String studentName, int age, String homeCity) {
 		this.studentName = studentName;
 		this.age = age;
 		this.homeCity = homeCity;
+	}
+	
+	public Student (String studentName, int age, String homeCity, boolean payment) {
+		this.studentName = studentName;
+		this.age = age;
+		this.homeCity = homeCity;
+		this.payment = payment;
 	}
 	
 	public String getStudentName() {
@@ -20,4 +29,13 @@ public abstract class Student {
 	public String getHomeCity() {
 		return homeCity;
 	}
+	
+	public boolean getPayment(){
+		return payment;
+	}
+	
+	public void setPayment(boolean payment){
+		this.payment = payment;
+	}
+
 }
