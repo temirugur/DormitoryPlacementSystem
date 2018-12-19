@@ -16,12 +16,20 @@ public class Software {
 		
 		for(int i = 0; i<250; i++){
 			registeredList.add(allStudents.get(i));
+			System.out.println(registeredList.toString());
+			System.out.println(registeredList.size());
+			System.out.println();
+			System.out.println();
+			System.out.println();
 			
 			//registeredList.get(i) = allStudents.get(i);
 			registeredList.get(i).setPayment(randomPayment());
 			
-			paymentList = registeredList;
-			paymentList.toString();
+			System.out.println(registeredList.toString());
+			
+			
+			//paymentList = registeredList;
+			//paymentList.toString();
 			}
 		
 		
@@ -47,7 +55,7 @@ public class Software {
 
 	}
 	private static String generateCity() {
-		String[] cities = {"Istanbul", "Ankara", "Izmýr", "Antalya", "Bursa", "Edirne"};
+		String[] cities = {"Istanbul", "Ankara", "Izmir", "Antalya", "Bursa", "Edirne"};
 		
 		Random random = new Random();
 		
