@@ -17,34 +17,21 @@ public class Software {
 			createRegisteredStudents(i);
 			createPaymentList(i);
 			removeUnpaidStudents(i);
+			//System.out.println(paymentList);
+			removeFromRegisteredList();
 			
 			//registeredlisti payment liste eşitleme kısmı yok
 			
 			// ÇALIŞMIYO BURAYA TEKRAR BAKICAZ
-			//METHODLARA ÇEVİRİLECEK
 			
-			
-			//registeredList.removeAll(paymentList);
-			//registeredList.addAll(paymentList);
-			
-			System.out.println(registeredList.toString());
-			
-			
-			//paymentList = registeredList;
-			//paymentList.toString();
 			}
 		
-		
-		
-		
-		for(int i = 250; i<500; i++){
-			reserveList.add(allStudents.get(i));
-		}
+		createReservedList();
 		
 	}
 	
 	private static void createAllStudents(){
-		System.out.println("These are all the students who consult to DPS:");
+		//System.out.println("These are all the students who consult to DPS:");
 		for (int i=0;i<500;i++) {
 			Student student = new Student(createRandomName(), generateAge(), generateCity());
 			allStudents.add(student);
@@ -52,22 +39,37 @@ public class Software {
 	}
 	
 	private static void createRegisteredStudents(int i){
-		System.out.println("These are all the students who has a room :");
+		//System.out.println("These are all the students who has a room :");
 		registeredList.add(allStudents.get(i));
-		System.out.println(registeredList.toString());
+		//System.out.println(registeredList.toString());
 	}
 	
 	private static void createPaymentList(int i){
 		System.out.println("The payment information for registered students: ");
 		paymentList = new ArrayList<>(registeredList);
 		paymentList.get(i).setPayment(randomPayment());
+		System.out.println(paymentList);
 	}
 	
-	private static List<Student> removeUnpaidStudents(int i){
-		if(paymentList.get(i).getPayment() == false){
+	private static List<Student> removeUnpaidStudents(int i){ //ÇALIŞMIYOR
+		
+		if(!paymentList.get(i).getPayment()){
 			paymentList.remove(i);
 		} 
 		return paymentList;
+	}
+	
+	private static void removeFromRegisteredList(){
+		//registeredList.clear();
+		for(int i = 0; i < paymentList.size(); i++){
+			registeredList.set(i, paymentList.get(i));
+		}
+	}
+	
+	private static void createReservedList(){
+		for(int i = 250; i<500; i++){
+			reserveList.add(allStudents.get(i));
+		}
 	}
 	
 	private static String createRandomName() {
