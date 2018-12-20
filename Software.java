@@ -7,27 +7,19 @@ public class Software {
 	static List<Student> allStudents = new ArrayList<>();
 	static List<Student> registeredList = new ArrayList<>();
 	static List<Student> reserveList = new ArrayList<>();
+	static List<Student> paymentList;
 	
 	public static void main (String[] args) {
 		
 		createAllStudents();
 		
-		
-		
-		
-		
 		for(int i = 0; i<250; i++){
 			createRegisteredStudents(i);
+			createPaymentList(i);
+			removeUnpaidStudents(i);
 			
+			//registeredlisti payment liste eşitleme kısmı yok
 			
-			System.out.println(registeredList.toString());
-			List<Student> paymentList = new ArrayList<>(registeredList);
-			paymentList.get(i).setPayment(randomPayment());
-			
-			
-			if(paymentList.get(i).getPayment() == false){
-				paymentList.remove(i);
-			} 
 			// ÇALIŞMIYO BURAYA TEKRAR BAKICAZ
 			//METHODLARA ÇEVİRİLECEK
 			
@@ -53,7 +45,6 @@ public class Software {
 	
 	private static void createAllStudents(){
 		System.out.println("These are all the students who consult to DPS:");
-		System.out.println("\n");
 		for (int i=0;i<500;i++) {
 			Student student = new Student(createRandomName(), generateAge(), generateCity());
 			allStudents.add(student);
@@ -62,9 +53,21 @@ public class Software {
 	
 	private static void createRegisteredStudents(int i){
 		System.out.println("These are all the students who has a room :");
-		System.out.println("\n");
 		registeredList.add(allStudents.get(i));
 		System.out.println(registeredList.toString());
+	}
+	
+	private static void createPaymentList(int i){
+		System.out.println("The payment information for registered students: ");
+		paymentList = new ArrayList<>(registeredList);
+		paymentList.get(i).setPayment(randomPayment());
+	}
+	
+	private static List<Student> removeUnpaidStudents(int i){
+		if(paymentList.get(i).getPayment() == false){
+			paymentList.remove(i);
+		} 
+		return paymentList;
 	}
 	
 	private static String createRandomName() {
