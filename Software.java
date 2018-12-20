@@ -4,23 +4,20 @@ import java.util.List;
 import java.util.Random;
 
 public class Software {
+	static List<Student> allStudents = new ArrayList<>();
+	static List<Student> registeredList = new ArrayList<>();
+	static List<Student> reserveList = new ArrayList<>();
+	
 	public static void main (String[] args) {
-		List<Student> allStudents = new ArrayList<>();
 		
-		for (int i=0;i<500;i++) {
-			Student student = new Student(createRandomName(), generateAge(), generateCity());
-			allStudents.add(student);
-		}
+		createAllStudents();
 		
-		List<Student> registeredList = new ArrayList<>();
-		List<Student> reserveList = new ArrayList<>();
+		
+		
+		
 		
 		for(int i = 0; i<250; i++){
-			registeredList.add(allStudents.get(i));
-			System.out.println(registeredList.toString());
-			System.out.println();
-			System.out.println();
-			System.out.println();
+			createRegisteredStudents(i);
 			
 			
 			System.out.println(registeredList.toString());
@@ -34,8 +31,9 @@ public class Software {
 			// ÇALIŞMIYO BURAYA TEKRAR BAKICAZ
 			//METHODLARA ÇEVİRİLECEK
 			
-			registeredList.clear();
-			registeredList.addAll(paymentList);
+			
+			//registeredList.removeAll(paymentList);
+			//registeredList.addAll(paymentList);
 			
 			System.out.println(registeredList.toString());
 			
@@ -53,6 +51,22 @@ public class Software {
 		
 	}
 	
+	private static void createAllStudents(){
+		System.out.println("These are all the students who consult to DPS:");
+		System.out.println("\n");
+		for (int i=0;i<500;i++) {
+			Student student = new Student(createRandomName(), generateAge(), generateCity());
+			allStudents.add(student);
+		}
+	}
+	
+	private static void createRegisteredStudents(int i){
+		System.out.println("These are all the students who has a room :");
+		System.out.println("\n");
+		registeredList.add(allStudents.get(i));
+		System.out.println(registeredList.toString());
+	}
+	
 	private static String createRandomName() {
 		String[] firstNames = { "Ali", "Ayse", "Ahmet", "Mehmet", "Mustafa", "Gizem", "Sibel", "Burak", "Bahar" };
 		String[] lastNames = { "Yilmaz", "Caliskan", "Korkmaz", "Kaya", "Akar", "Sonmez", "Celikoglu" };
@@ -66,6 +80,7 @@ public class Software {
 		return name;
 
 	}
+	
 	private static String generateCity() {
 		String[] cities = {"Istanbul", "Ankara", "Izmir", "Antalya", "Bursa", "Edirne"};
 		
