@@ -17,3 +17,13 @@ public class RandomG{
 		return name;
 
 	}
+	
+	public String generateCity() {
+		String[] cities = {"Istanbul", "Ankara", "Izmir", "Antalya", "Bursa", "Edirne"};
+		
+		Random random = new Random();
+		
+		String city = cities[random.nextInt(cities.length)];
+		
+		return city;
+	}
