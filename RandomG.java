@@ -19,7 +19,8 @@ public class RandomG{
 	}
 	
 	public String generateCity() {
-		String[] cities = {"Istanbul", "Ankara", "Izmir", "Antalya", "Bursa", "Edirne"};
+		String[] cities = {"Istanbul", "Ankara", "Izmir", "Antalya", "Bursa", "Edirne","Aydın",
+				"Kars","Ağrı", "Afyon", "Kayseri", "Kilis", "Antep", "Adana"};
 		
 		Random random = new Random();
 		
